@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AI Web - 환영합니다</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 56px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 20px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .features {
+            display: flex;
+            gap: 40px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 250px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature h3 {
+            color: white;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .feature p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">My AI Web</div>
+        <nav>
+            <a href="#features">기능</a>
+            <a href="#about">소개</a>
+            <a href="#contact">문의</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <h1>AI와 함께하는<br>새로운 웹 경험</h1>
+            <p>최신 AI 기술을 활용하여 더 스마트하고 효율적인 웹 서비스를 경험하세요. 간단하고 직관적인 인터페이스로 누구나 쉽게 사용할 수 있습니다.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">시작하기</a>
+                <a href="#" class="btn btn-secondary">더 알아보기</a>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>빠른 속도</h3>
+                    <p>최적화된 성능으로 빠르고 부드러운 사용자 경험을 제공합니다.</p>
+                </div>
+                <div class="feature">
+                    <h3>간편한 사용</h3>
+                    <p>직관적인 디자인으로 누구나 쉽게 사용할 수 있습니다.</p>
+                </div>
+                <div class="feature">
+                    <h3>안전한 보안</h3>
+                    <p>최신 보안 기술로 소중한 데이터를 안전하게 보호합니다.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My AI Web. All rights reserved.</p>
+    </footer>
+</body>
+</html>
