@@ -1,0 +1,71 @@
+/* CSS 초기화 */
+* {
+  box-sizing: border-box;
+}
+
+/* HTML, Body 초기화 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Root 앱 컨테이너 설정 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 기본 폰트 설정 */
+body {
+  font-family: 'Pretendard', 'Noto Sans KR', 'Inter', -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  background-color: #FAFAFA;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 링크 스타일 */
+a {
+  color: #0095F6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 인스타그램 그라데이션 */
+.instagram-gradient {
+  background: linear-gradient(45deg, #F77737, #E1306C, #833AB4);
+}
+
+/* 스토리 링 그라데이션 */
+.story-ring {
+  background: linear-gradient(45deg, #F77737, #E1306C, #833AB4);
+  padding: 2px;
+  border-radius: 50%;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DBDBDB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8E8E8E;
+}
