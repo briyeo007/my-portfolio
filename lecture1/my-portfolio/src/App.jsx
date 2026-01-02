@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Navigation from './components/common/Navigation';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ProjectsPage from './pages/ProjectsPage';
+import Navigation from '@/components/common/Navigation';
+import HomePage from '@/pages/HomePage';
+import AboutPage from '@/pages/AboutPage';
+import ProjectsPage from '@/pages/ProjectsPage';
 
 /**
  * App 컴포넌트

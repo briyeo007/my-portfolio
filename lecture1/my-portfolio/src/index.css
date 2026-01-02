@@ -1,17 +1,68 @@
-/* CSS 초기화 */
-* {
-  box-sizing: border-box;
+@import 'tailwindcss';
+
+@theme {
+  /* 삼국지 테마 컬러 시스템 */
+  --color-background: #1C1410;
+  --color-foreground: #F5F5DC;
+
+  --color-card: #2A2420;
+  --color-card-foreground: #F5F5DC;
+
+  --color-popover: #2A2420;
+  --color-popover-foreground: #F5F5DC;
+
+  --color-primary: #B22222;
+  --color-primary-foreground: #F5F5DC;
+
+  --color-secondary: #D4A537;
+  --color-secondary-foreground: #1C1410;
+
+  --color-muted: #3A3430;
+  --color-muted-foreground: #8B8878;
+
+  --color-accent: #48D1CC;
+  --color-accent-foreground: #1C1410;
+
+  --color-destructive: #B22222;
+  --color-destructive-foreground: #F5F5DC;
+
+  --color-border: #3A3430;
+  --color-input: #3A3430;
+  --color-ring: #D4A537;
+
+  /* 추가 커스텀 컬러 */
+  --color-gold: #D4A537;
+  --color-gold-light: #F0C850;
+  --color-gold-dark: #8B6914;
+  --color-turquoise: #48D1CC;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 }
 
-/* HTML, Body 초기화 */
-html, body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-color: var(--color-border);
+}
+
+html, body {
   width: 100%;
   min-height: 100vh;
 }
 
-/* Root 앱 컨테이너 설정 */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
@@ -19,65 +70,13 @@ html, body {
   flex-direction: column;
 }
 
-/* 컬러 팔레트 CSS 변수 */
-:root {
-  /* Primary Colors */
-  --color-primary: #B22222;
-  --color-primary-light: #DC3545;
-  --color-primary-dark: #8B0000;
-
-  /* Secondary Colors */
-  --color-secondary: #D4A537;
-  --color-secondary-light: #F0C850;
-  --color-secondary-dark: #8B6914;
-  --color-accent: #48D1CC;
-
-  /* Background Colors */
-  --color-bg-primary: #1C1410;
-  --color-bg-secondary: #2A2420;
-  --color-bg-tertiary: #3A3430;
-  --color-bg-overlay: rgba(28, 20, 16, 0.9);
-
-  /* Text Colors */
-  --color-text-primary: #F5F5DC;
-  --color-text-secondary: #C0B8A8;
-  --color-text-muted: #8B8878;
-  --color-text-highlight: #D4A537;
-
-  /* Border & Divider */
-  --color-border: #3A3430;
-  --color-border-light: #4A4440;
-  --color-divider: #2A2420;
-
-  /* Gradients */
-  --gradient-gold: linear-gradient(135deg, #D4A537 0%, #8B6914 100%);
-  --gradient-red: linear-gradient(135deg, #B22222 0%, #8B0000 100%);
-  --gradient-dark: linear-gradient(180deg, #1C1410 0%, #2A2420 100%);
-
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
-  --shadow-gold: 0 4px 12px rgba(212, 165, 55, 0.3);
-
-  /* Typography */
-  font-family: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: dark;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* 스크롤바 스타일링 */
+/* 스크롤바 스타일 */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-primary);
+  background: var(--color-background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -86,5 +85,5 @@ html, body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-border-light);
+  background: var(--color-secondary);
 }

@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -12,8 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
 
 /**
  * Navigation 컴포넌트
@@ -27,8 +25,6 @@ import { useTheme } from '@mui/material/styles';
 function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -36,30 +32,23 @@ function Navigation() {
     { label: 'Projects', path: '/projects' }
   ];
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
   const isActive = (path) => {
     return location.pathname === path;
   };
 
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   const drawer = (
-    <Box
-      onClick={handleDrawerToggle}
-      sx={{
-        textAlign: 'center',
-        bgcolor: 'background.default',
-        height: '100%',
-        pt: 2
-      }}
-    >
+    <Box sx={{ width: 250, pt: 2 }}>
       <Typography
         variant="h6"
         sx={{
-          mb: 2,
           color: 'secondary.main',
-          fontWeight: 700
+          fontWeight: 700,
+          px: 2,
+          mb: 2
         }}
       >
         Portfolio
@@ -70,16 +59,24 @@ function Navigation() {
             <ListItemButton
               component={Link}
               to={item.path}
+              onClick={handleDrawerToggle}
               sx={{
-                textAlign: 'center',
-                color: isActive(item.path) ? 'secondary.main' : 'text.secondary',
+                bgcolor: isActive(item.path) ? 'action.selected' : 'transparent',
                 '&:hover': {
-                  color: 'secondary.main',
-                  bgcolor: 'background.paper'
+                  bgcolor: 'action.hover'
                 }
               }}
             >
-              <ListItemText primary={item.label} />
+              <ListItemText
+                primary={item.label}
+                sx={{
+                  '& .MuiListItemText-primary': {
+                    color: isActive(item.path) ? 'secondary.main' : 'text.secondary',
+                    fontWeight: isActive(item.path) ? 600 : 400,
+                    textAlign: 'center'
+                  }
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -89,80 +86,107 @@ function Navigation() {
 
   return (
     <>
-      <AppBar position="fixed" elevation={0}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Typography
-            variant="h6"
-            component={Link}
-            to="/"
-            sx={{
-              color: 'secondary.main',
-              fontWeight: 700,
-              textDecoration: 'none',
-              '&:hover': {
-                color: 'secondary.light'
-              }
-            }}
-          >
-            Portfolio
-          </Typography>
+      <AppBar
+        position="fixed"
+        sx={{
+          bgcolor: 'rgba(26, 22, 19, 0.9)',
+          backdropFilter: 'blur(8px)',
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+          boxShadow: 'none'
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar disableGutters sx={{ height: 64 }}>
+            {/* Logo */}
+            <Typography
+              variant="h6"
+              component={Link}
+              to="/"
+              sx={{
+                flexGrow: { xs: 1, md: 0 },
+                color: 'secondary.main',
+                fontWeight: 700,
+                textDecoration: 'none',
+                mr: { md: 4 },
+                '&:hover': {
+                  color: 'secondary.light'
+                }
+              }}
+            >
+              Portfolio
+            </Typography>
 
-          {isMobile ? (
+            {/* Desktop Navigation */}
+            <Box
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                flexGrow: 1,
+                gap: 0.5
+              }}
+            >
+              {navItems.map((item) => (
+                <Box
+                  key={item.label}
+                  component={Link}
+                  to={item.path}
+                  sx={{
+                    px: 2,
+                    py: 1,
+                    color: isActive(item.path) ? 'secondary.main' : 'text.secondary',
+                    fontSize: '0.875rem',
+                    fontWeight: 500,
+                    textDecoration: 'none',
+                    borderBottom: isActive(item.path) ? '2px solid' : '2px solid transparent',
+                    borderColor: isActive(item.path) ? 'secondary.main' : 'transparent',
+                    transition: 'color 0.2s ease',
+                    '&:hover': {
+                      color: 'secondary.main'
+                    }
+                  }}
+                >
+                  {item.label}
+                </Box>
+              ))}
+            </Box>
+
+            {/* Mobile Menu Button */}
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={handleDrawerToggle}
+              sx={{ display: { md: 'none' } }}
             >
               <MenuIcon />
             </IconButton>
-          ) : (
-            <Box sx={{ display: 'flex', gap: 1 }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item.label}
-                  component={Link}
-                  to={item.path}
-                  sx={{
-                    color: isActive(item.path) ? 'secondary.main' : 'text.secondary',
-                    borderBottom: isActive(item.path) ? '2px solid' : 'none',
-                    borderColor: 'secondary.main',
-                    borderRadius: 0,
-                    px: 2,
-                    '&:hover': {
-                      color: 'secondary.main',
-                      bgcolor: 'transparent'
-                    }
-                  }}
-                >
-                  {item.label}
-                </Button>
-              ))}
-            </Box>
-          )}
-        </Toolbar>
+          </Toolbar>
+        </Container>
       </AppBar>
 
+      {/* Mobile Drawer */}
       <Drawer
         variant="temporary"
         anchor="right"
         open={mobileOpen}
         onClose={handleDrawerToggle}
-        ModalProps={{ keepMounted: true }}
+        ModalProps={{
+          keepMounted: true
+        }}
         sx={{
           display: { xs: 'block', md: 'none' },
           '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: 240,
-            bgcolor: 'background.default'
+            bgcolor: 'background.paper',
+            borderLeft: '1px solid',
+            borderColor: 'divider'
           }
         }}
       >
         {drawer}
       </Drawer>
 
-      {/* Toolbar spacing */}
-      <Toolbar />
+      {/* Spacer for fixed header */}
+      <Toolbar sx={{ height: 64 }} />
     </>
   );
 }
