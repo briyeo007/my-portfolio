@@ -95,22 +95,20 @@ function AboutPage() {
             <Grid container spacing={4} alignItems="center">
               <Grid size={{ xs: 12, md: 4 }}>
                 <Box
+                  component="img"
+                  src="/images/profile.jpg"
+                  alt="Brian Ungjun Yeo"
                   sx={{
                     width: { xs: 150, md: 200 },
                     height: { xs: 150, md: 200 },
                     borderRadius: '50%',
-                    bgcolor: 'secondary.main',
+                    objectFit: 'cover',
                     mx: 'auto',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: { xs: '3rem', md: '4rem' },
-                    fontWeight: 700,
-                    color: 'background.default'
+                    display: 'block',
+                    border: '3px solid',
+                    borderColor: 'secondary.main'
                   }}
-                >
-                  B
-                </Box>
+                />
               </Grid>
               <Grid size={{ xs: 12, md: 8 }}>
                 <Typography

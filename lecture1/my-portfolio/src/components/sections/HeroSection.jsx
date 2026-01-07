@@ -71,7 +71,7 @@ function HeroSection() {
             variant="h1"
             component="h1"
             sx={{
-              color: 'rgba(255, 255, 255, 0.9)',
+              color: '#3D3530',
               fontWeight: 700,
               mb: 2,
               fontSize: { xs: '2.5rem', md: '4rem' },

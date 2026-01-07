@@ -37,6 +37,7 @@ function ProjectCard({ title, description, techStack = [], thumbnailUrl, detailU
     <CardContainer>
       <CardBody>
         <Card
+          onClick={handleViewDetails}
           sx={{
             height: '100%',
             display: 'flex',
@@ -46,6 +47,7 @@ function ProjectCard({ title, description, techStack = [], thumbnailUrl, detailU
             borderColor: 'divider',
             borderRadius: 3,
             overflow: 'hidden',
+            cursor: 'pointer',
             transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
             '&:hover': {
               borderColor: 'secondary.main',
